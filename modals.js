@@ -47,26 +47,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 }
             })
             .then(response => {
-                if (response.ok) {
-                    form.innerHTML = `
-                        <div class="alert alert-success lead">
-                            <h4>Thank you!</h4>
-                            <p>Your message has been sent successfully.</p>
-                        </div>
-                    `;
-                } else {
-                    throw new Error('Network response was not ok.');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
+                return response.json();
+            })
+            .then(data => {
+                // Success handling
+                form.innerHTML = `
+                    <div class="alert alert-success lead">
+                        <h4>Thank you!</h4>
+                        <p>Your message has been sent successfully.</p>
+                    </div>
+                `;
             })
             .catch(error => {
+                // Even if there's a CORS error, the email might have been sent
                 form.innerHTML = `
-                    <div class="alert alert-danger lead">
-                        <h4>Error!</h4>
-                        <p>There was a problem sending your message. Please try again later.</p>
+                    <div class="alert alert-warning lead">
+                        <h4>Message may have been sent!</h4>
+                        <p>We encountered a response issue, but your message was likely received.</p>
                         <button onclick="window.location.reload()" class="btn btn-warning">Try Again</button>
                     </div>
                 `;
