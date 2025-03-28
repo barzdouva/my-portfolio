@@ -1,99 +1,213 @@
 @import url('https://fonts.cdnfonts.com/css/the-halloween');
 @import url('https://fonts.cdnfonts.com/css/gilton');
 @import url('https://fonts.cdnfonts.com/css/lugate');
-    body{
-        background-color: #F4831B;
-        margin: 0;
-        padding: 20px; 
-        font-family: 'Gilton', sans-serif;      
-    }
 
-    h1{
-        font-family:"The Halloween", sans-serif;
-        text-align: center;
-        color: #902EBB; 
-        margin-bottom: 20px;
-        font-size: 40px;
-        text-shadow: 2px 2px white; 
-    }
+body {
+    background-color: #F4831B;
+    margin: 0;
+    padding: 20px; 
+    font-family: 'Gilton', sans-serif;
+    min-height: 100vh;
+}
 
-    .event-info{
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        margin: 20px auto;
-        border-radius: 10px;;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        border: 5px solid #902EBB;    
-    }
+h1 {
+    font-family: "The Halloween", sans-serif;
+    text-align: center;
+    color: #902EBB; 
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 10vw, 3.5rem); /* Responsive font size */
+    text-shadow: 2px 2px white;
+    padding: 0 10px;
+}
 
-    .event-table{
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
+.event-info {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 5px solid #902EBB;
+    max-width: 1000px;
+}
 
-    .event-table, .event-table th, .event-table td {
-        border: 2px solid #902EBB;
-    }
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
 
-    .event-table th {
-        background-color: #63C328;
-        font-family: 'Lugate', sans-serif;
-        color: #903EBB;
+.event-table, .event-table th, .event-table td {
+    border: 2px solid #902EBB;
+}
+
+.event-table th {
+    background-color: #63C328;
+    font-family: 'Lugate', sans-serif;
+    color: #903EBB;
+    padding: 10px;
+    font-size: clamp(1rem, 4vw, 1.25rem); /* Responsive font size */
+}
+
+.event-table td {
+    font-family: 'Gilton', sans-serif;
+    padding: 10px;
+    font-size: clamp(1rem, 4vw, 1.5rem); /* Responsive font size */
+}
+
+h2, h3 {
+    color: #902EBB;
+    margin: 15px 0;
+    font-size: clamp(1.25rem, 5vw, 1.75rem); /* Responsive font size */
+}
+
+h3 {
+    border-bottom: 2px solid #F4A300; 
+    padding-bottom: 5px;
+}
+
+/* Video container styling */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 3px solid #902EBB;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Audio player styling */
+audio {
+    width: 100%;
+    margin: 10px 0;
+    border: 2px solid #902EBB;
+    border-radius: 10px;
+}
+
+/* Form styling */
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #902EBB;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    border-radius: 5px;
+    border: 2px solid #903EBB;
+    font-family: 'Gilton', sans-serif;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.radio-group {
+    margin: 10px 0;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+input[type="radio"] {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    background-color: #902EBB;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    font-family: 'Lugate', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="submit"]:hover {
+    background-color: #61217c;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    background-color: #902EBB;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Lugate', sans-serif;
+}
+
+a {
+    color: #902EBB;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #61217c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
         padding: 10px;
-        font-size: 20px;
     }
-
+    
+    .event-info {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    
     .event-table td {
-        font-family: 'Gilton', sans-serif;
-        padding: 10px;
-        font-size: 30px;
+        padding: 8px;
     }
-
-    h2, h3{
-        color:#902EBB;
-        margin: 10px 0;
-    }
-
-    h3 {
-        border-bottom: 2px solid #F4A300; 
-        padding-bottom: 5px;
-    }
-
+    
     input[type="text"],
-    input[type="submit"],
-    input[type="radio"]{
-        border: 2px solid #903EBB;
+    input[type="submit"] {
         padding: 10px;
-        margin:10px 0;
-        border-radius: 5px;
     }
+}
 
-    input[type="submit"]{
-        background-color: #902EBB;
-        color: white;
-        font-weight:bold;
-        font-size: 16px;
+@media (max-width: 480px) {
+    .event-table th, 
+    .event-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
     }
-
-    input[type="submit"]:hover{
-        background-color: #61217c;
+    
+    .event-table th {
+        border-bottom: none;
     }
-
-    .footer {
-        text-align: center;
-        margin-top: 20px;
-        color:white;
-        background-color:#902EBB;
-        padding: 10px;
-        border-radius: 5px;
+    
+    .event-table tr {
+        margin-bottom: 10px;
+        display: block;
     }
- 
-    a {
-        color: #902EBB;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
+}
